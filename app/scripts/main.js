@@ -123,7 +123,8 @@ var app = new Vue ({
 		this.randomize();
 	},
 	methods: {
-		randomize: function(){
+		randomize: function(e){
+			e.preventDefault();
 			var wordCount = this._data.words.length;
 			var i = Math.ceil(Math.random() * wordCount) - 1;
 
