@@ -1,0 +1,12 @@
+{
+  "name": "french-flashcards",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "vue": "~1.0.8"
+  },
+  "devDependencies": {
+    "chai": "~3.4.2",
+    "mocha": "~2.3.4"
+  }
+}
