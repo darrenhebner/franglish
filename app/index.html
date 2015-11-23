@@ -25,6 +25,13 @@
     
     <section class="container">
         <div class="flashcard-container">
+            <!-- <div class="score-guage"></div> -->
+
+            <svg class="progress-circle" width="400" height="400">
+               <path class="progress" d="m1.5,200c0,-109.66851 88.83149,-198.5 198.5,-198.5c109.668518,0 198.5,88.83149 198.5,198.5c0,109.668518 -88.831482,198.5 -198.5,198.5c-109.66851,0 -198.5,-88.831482 -198.5,-198.5z" stroke-width="3" stroke="#37DF40" fill="none" stroke-alignment="inner"/> 
+               <path class="path" d="m1.5,200c0,-109.66851 88.83149,-198.5 198.5,-198.5c109.668518,0 198.5,88.83149 198.5,198.5c0,109.668518 -88.831482,198.5 -198.5,198.5c-109.66851,0 -198.5,-88.831482 -198.5,-198.5z" stroke-width="3" stroke="rgba(255,255,255,0.1)" fill="none"/>
+            </svg>
+
             <h1 id="french"></h1>
             <form v-on:submit="randomize">
                 <input type="text" placeholder="Translate to English">

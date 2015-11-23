@@ -23,3 +23,25 @@ button {
 	border: 0;
 	background: none;
 }
+
+.progress-circle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(90deg);
+	z-index: -10;
+}
+
+.progress {
+	stroke-dasharray: 1255;
+	animation: animateStroke 5s ease-in-out forwards;
+}
+
+@keyframes animateStroke {
+	from {
+		stroke-dashoffset: 1255;
+	}
+	to {
+    stroke-dashoffset: 0;
+  }
+}
