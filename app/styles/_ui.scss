@@ -16,12 +16,17 @@ input[type="submit"] {
 	padding: 0.8em 1.6em;
 	border: 0;
 	border-radius: 1.6em;
+	cursor: pointer;
 }
 
 button {
 	color: $secondary-font-color;
 	border: 0;
 	background: none;
+	cursor: pointer;
+	&:hover {
+		color: $main-font-color;
+	}
 }
 
 .progress-circle {

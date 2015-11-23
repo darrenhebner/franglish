@@ -11,6 +11,12 @@ h1 {
 	font-weight: 700;
 }
 
+.logo {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1.2em;
+}
+
 .score-container, .incorrect-container, .skip-container{
 	font-family: 'Inconsolata', monospaced;
 	color: $secondary-font-color;
