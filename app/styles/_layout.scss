@@ -1,10 +1,10 @@
 body {
-	background: #DEE8EA;
+	background: #DEE8EA; //light blue
 }
 .container {
 	display: flex;
 	height: 100vh;
 	width: 100vw;
-	background: #454657;
+	background: $dark-purple;
 	box-shadow: 2px 2px 30px 10px rgba(0,0,0,0.2);
 }
