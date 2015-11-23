@@ -111,7 +111,8 @@ var data = {
 			fr: "bébé",
 			connection: "A french bro talking to his girlfriend"
 		}
-	]
+	],
+	overlay: false
 }
 
 var app = new Vue ({
@@ -120,7 +121,7 @@ var app = new Vue ({
 	data: data,
 
 	ready: function(){
-		this.randomize();
+		//this.randomize();
 	},
 	methods: {
 		randomize: function(e){

@@ -1,4 +1,4 @@
-html {
+* {
 	box-sizing: border-box;
 }
 
@@ -23,7 +23,7 @@ body {
 
 .logo, .incorrect-container, .score-container, .skip-container {
 	position: absolute;
-	margin: 0.8em;
+	margin: 1.2em;
 }
 
 .logo {
@@ -44,4 +44,21 @@ body {
 .skip-container {
 	bottom: 0;
 	right: 0;
+}
+
+.incorrect-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 50%;
+	background: #333;
+	z-index: 10;
+	padding: 1.6em;
+	& .close-overlay {
+		position: absolute;
+		top: 1.6em;
+		right: 1.6em;
+		outline: none;
+	}
 }
