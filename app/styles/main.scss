@@ -3,10 +3,12 @@
 
 //Globals
 $dark-purple: #454657;
-$light-purple: #37DF40;
+$light-purple: rgba(255,255,255,0.1);
 $main-font-color: #fff;
-$secondary-font-color: #37DF40;
+$secondary-font-color: rgba(255,255,255,0.8);
+$green: #37DF40;
 
 @import "reset";
 @import "typography";
 @import "layout";
+@import "ui";

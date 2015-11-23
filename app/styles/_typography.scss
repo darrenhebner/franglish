@@ -10,3 +10,19 @@ h1 {
 	text-transform: uppercase;
 	font-weight: 700;
 }
+
+.score-container, .incorrect-container, .skip-container{
+	font-family: 'Inconsolata', monospaced;
+	color: $secondary-font-color;
+}
+
+input[type="text"], input[type="submit"] {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+button {
+	font-family: 'Inconsolata', monospaced;
+	font-size: 16px;
+}
