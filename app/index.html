@@ -24,10 +24,27 @@
     <![endif]-->
     
     <section class="container">
-        <h1 id="french"></h1> 
-        <span id="connection"></span>
+        <h2 class="logo">Franglish</h2>
 
-        <button id="next" v-on:click="randomize">Next &rarr;</button>
+        <div class="flashcard-container">
+            <h1 id="french"></h1>
+            <form v-on:submit="randomize">
+                <input type="text" placeholder="Translate to English">
+                <input type="submit" value="Check">
+            </form>
+        </div>
+        
+        <div class="score-container">
+            01/10
+        </div>
+
+        <div class="skip-container">
+            <button>Skip</button>
+        </div>
+
+        <div class="incorrect-container">
+            <button>Incorrect</button>
+        </div>
     </section>
 
 
