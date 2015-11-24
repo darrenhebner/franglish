@@ -28,9 +28,18 @@ button {
 	background: none;
 	cursor: pointer;
 	outline: none;
+	transition: all .3 ease out;
 	&:hover {
 		color: $main-font-color;
 	}
+}
+
+.incorrect {
+	color: #D64541 !important;
+}
+
+.correct {
+	color: $green !important;
 }
 
 .progress-circle {
@@ -43,14 +52,30 @@ button {
 
 .progress {
 	stroke-dasharray: 1255;
-	animation: animateStroke 5s ease-in-out forwards;
+	//stroke-dashoffset: 0;
+	transition: all .3s ease-in-out;
+	animation: loadProgress 1.2s ease-in-out;
 }
 
-@keyframes animateStroke {
+.next-btn {
+	padding: 0.8em 1.6em;
+}
+
+li {
+	margin-bottom: 0.8em;
+	text-indent: -20px;
+	&::before {
+		position: relative;
+		content: '—';
+		left: -8px;
+		color: $secondary-font-color;
+	}
+}
+
+@keyframes loadProgress {
 	from {
 		stroke-dashoffset: 1255;
+	} to {
+		stroke-dashoffset: 0;
 	}
-	to {
-    stroke-dashoffset: 0;
-  }
 }

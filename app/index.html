@@ -30,6 +30,11 @@
             </svg>
         </button>
         <h3>Incorrect Words</h3>
+        <ul>
+            <li v-for="word in incorrectWords">
+                {{word.fr}}
+            </li>
+        </ul>
     </aside>
     
     <section class="container">
@@ -42,23 +47,24 @@
             </svg>
 
             <h1 id="french"></h1>
-            <form v-on:submit="randomize">
-                <input type="text" placeholder="Translate to English">
-                <input type="submit" value="Check">
+            <form v-on:submit="checkTranslation">
+                <input type="text" v-model="english" placeholder="Translate to English" class="{{ color }}">
+                <input v-if="!next" type="submit" value="Check">
+                <button class="next-btn" v-if="next" v-on:click="nextWord">Next</button>
             </form>
         </div>
         <h2 class="logo">Franglish</h2>
 
         <div class="incorrect-container">
-           <button v-on:click="overlay = true">Incorrect</button>
+           <button v-on:click="overlay = true">Incorrect Words</button>
         </div>
         
         <div class="score-container">
-            01/10
+            {{correct}}/{{total}}
         </div>
 
         <div class="skip-container">
-            <button>Skip</button>
+            <button v-on:click="nextWord">Skip</button>
         </div>
 
     </section>

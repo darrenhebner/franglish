@@ -1,118 +1,101 @@
 var fr = $("#french"),
-	connection = $("#connection");
+	connection = $("#connection"),
+	index = 0;
 
 var data = {
 	words: [
 		{
 			en: "dog",
-			fr: "chien",
-			gender: "le chien",
-			connection: "leon"
+			fr: "chien"
 		},
 		{
 			en: "cat",
-			fr: "chat",
-			gender: "le chat",
-			connection: "sadie"
+			fr: "chat"
 		},
 		{
 			en: "fish",
-			fr: "poisson",
-			gender: "le poisson",
-			connection: "Gimli Fish"
+			fr: "poisson"
 		},
 		{
 			en: "bird",
-			fr: "oiseau",
-			connection: "Grandma's Hummingbird"
+			fr: "oiseau"
 		},
 		{
 			en: "adult",
-			fr: "adulte",
-			connection: "checking ID at liqur store"
+			fr: "adulte"
 		},
 		{
 			en: "afternoon",
-			fr: "après midi",
-			connection: "lazy afternoon"
+			fr: "après midi"
 		},
 		{
 			en: "air",
-			fr: "air",
-			connection: "fresh air"
+			fr: "air"
 		},
 		{
 			en: "airport",
-			fr: "aéroport",
-			connection: "waiting in the airport and that annoying girl who was talking on the phone"
+			fr: "aéroport"
 		},
 		{
 			en: "alive",
-			fr: "vivant",
-			connection: "frankenstein 'It's aliiiiive!'"
+			fr: "vivant"
 		},
 		{
 			en: "animal",
-			fr: "animal",
-			connection: "wildlife"
+			fr: "animal"
 		},
 		{
 			en: "apartment",
-			fr: "appartement",
-			connection: "dylan mcdonald singing barenaked ladies"
+			fr: "appartement"
 		},
 		{
 			en: "apple",
-			fr: "pomme",
-			connection: ""
+			fr: "pomme"
 		},
 		{
-			en: "April",
-			fr: "Avril",
-			connection: "Sk8trboi"
+			en: "april",
+			fr: "avril"
 		},
 		{
 			en: "arm",
-			fr: "bras",
-			connection: "You need arms to wear a bra"
+			fr: "bras"
 		},
 		{
 			en: "army",
-			fr: "armée",
-			connection: "Grandpa"
+			fr: "armée"
 		},
 		{
 			en: "art",
-			fr: "art",
-			connection: "garfunkle the painter"
+			fr: "art"
 		},
 		{
 			en: "artist",
-			fr: "artiste",
-			connection: "fancy way of saying artist"
+			fr: "artiste"
 		},
 		{
 			en: "attack",
-			fr: "attaque",
-			connection: "Joan of arc yelling 'attaque' while going in to battle"
+			fr: "attaque"
 		},
 		{
-			en: "August",
+			en: "august",
 			fr: "août",
-			connection: "Augustus Gloop from willy wanka eating a bunch of oats"
 		},
 		{
-			en: "Author",
-			fr: "auteur",
-			connection: "trying to pronounce kai's roomates name"
+			en: "author",
+			fr: "auteur"
 		},
 		{
 			en: "baby",
-			fr: "bébé",
-			connection: "A french bro talking to his girlfriend"
+			fr: "bébé"
 		}
 	],
-	overlay: false
+	incorrectWords: [],
+	overlay: false,
+	english: '',
+	color: '',
+	next: false,
+	correct: 0,
+	total: 0
 }
 
 var app = new Vue ({
@@ -121,7 +104,7 @@ var app = new Vue ({
 	data: data,
 
 	ready: function(){
-		//this.randomize();
+		fr.text(this._data.words[index].fr);
 	},
 	methods: {
 		randomize: function(e){
@@ -150,6 +133,32 @@ var app = new Vue ({
 			    //$("#background").addClass("fadeIn");
 			  }
 			});
+		},
+		checkTranslation: function(e) {
+			e.preventDefault();
+			var english = this.english;
+			if (this._data.words[index].en === english.toLowerCase()){
+				this._data.color = "correct";
+				this.correct++;
+			} else {
+				this._data.incorrectWords.push({fr: this._data.words[index].fr});
+				this._data.color = "incorrect";
+				this.english = this.words[index].en;
+			}
+			this._data.next = true;
+			this.total++;
+			this.updateGuage();
+		},
+		nextWord: function() {
+			this.english = '';
+			this._data.next = false;
+			this._data.color = '';
+			index++;
+			fr.text(this._data.words[index].fr);
+		},
+		updateGuage: function() {
+			var score = 1255 - (this.correct / this.total * 1255);
+			$(".progress").css("stroke-dashoffset", score);
 		}
 	}
 })
