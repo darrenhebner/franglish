@@ -9,6 +9,10 @@ h1 {
 	font-size: 6.4em;
 	text-transform: uppercase;
 	font-weight: 700;
+	z-index: 6;
+	@media screen and (max-width: 450px) {
+		font-size: 3.2em;
+	}
 }
 
 h3 {

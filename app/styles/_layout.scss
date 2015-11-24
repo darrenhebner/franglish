@@ -10,7 +10,6 @@ body {
 	height: 100vh;
 	width: 100vw;
 	background: $dark-purple;
-	box-shadow: 2px 2px 30px 10px rgba(0,0,0,0.2);
 }
 
 .flashcard-container {
@@ -18,11 +17,12 @@ body {
 	top: 50%;
 	text-align: center;
 	width: 100%;
+	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
 
 .logo, .incorrect-container, .score-container, .skip-container {
-	position: absolute;
+	position: fixed;
 	margin: 1.2em;
 }
 
@@ -47,7 +47,7 @@ body {
 }
 
 .incorrect-overlay {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -60,5 +60,8 @@ body {
 		top: 1.6em;
 		right: 1.6em;
 		outline: none;
+	}
+	@media and screen (max-width: 400px) {
+		width: 75%;
 	}
 }

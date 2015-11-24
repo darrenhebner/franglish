@@ -1,13 +1,16 @@
-/* always present */
 .expand-transition {
   transition: all .3s ease-out;
   padding: 3.2em;
   width: 50%;
   overflow: hidden;
+  @media and screen (max-width: 400px) {
+  	width: 75%;
+  }
 }
 
-/* .expand-enter defines the starting state for entering */
-/* .expand-leave defines the ending state for leaving */
 .expand-enter, .expand-leave {
   right: -50%;
+  @media and screen (max-width: 400px) {
+  	right: -75%;
+  }
 }
