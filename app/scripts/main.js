@@ -107,33 +107,6 @@ var app = new Vue ({
 		fr.text(this._data.words[index].fr);
 	},
 	methods: {
-		randomize: function(e){
-			e.preventDefault();
-			var wordCount = this._data.words.length;
-			var i = Math.ceil(Math.random() * wordCount) - 1;
-
-			fr.text(this._data.words[i].fr);
-			connection.text(this._data.words[i].connection);
-
-			this.getPhoto(this._data.words[i].en);
-		},
-		getPhoto: function(word){
-			var word = word;
-			var q = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + word + "&imgsz=xxlarge";
-			var pronounceUrl = "http://translate.google.com/translate_tts?ie=UTF-8&q=" + word + "&tl=fr";
-			var referrer = document.referrer;
-
-			$.ajax({
-			  url: q,
-			  dataType: 'jsonp',
-			  headers: {'Access-Control-Allow-Origin': referrer },
-			  success: function(data){
-			  	console.log(data);
-			  	//$("#background").css('background', 'url("' + data.responseData.results[0].url + '") no-repeat center center fixed');
-			    //$("#background").addClass("fadeIn");
-			  }
-			});
-		},
 		checkTranslation: function(e) {
 			e.preventDefault();
 			var english = this.english;
