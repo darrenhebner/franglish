@@ -1,5 +1,4 @@
 var fr = $("#french"),
-	connection = $("#connection"),
 	index = 0;
 
 var data = {
@@ -55,10 +54,6 @@ var data = {
 		{
 			en: "april",
 			fr: "avril"
-		},
-		{
-			en: "arm",
-			fr: "bras"
 		},
 		{
 			en: "army",
