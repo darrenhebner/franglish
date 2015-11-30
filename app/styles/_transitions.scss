@@ -23,15 +23,6 @@
 
 .roll-enter, .roll-leave {
   opacity: 0;
-  transform: rotateX(-60deg);
+  transform: rotateX(60deg);
   transform-origin: 100% 100%;
-}
-
-.fade-transition {
-  transition: all 0.35s cubic-bezier(.43,.5,.01,.96);
-  opacity: 1;
-}
-
-.fade-enter, .fade-leave {
-  opacity: 0;
 }
