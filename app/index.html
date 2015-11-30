@@ -45,7 +45,7 @@
                <path class="path" d="m1.5,200c0,-109.66851 88.83149,-198.5 198.5,-198.5c109.668518,0 198.5,88.83149 198.5,198.5c0,109.668518 -88.831482,198.5 -198.5,198.5c-109.66851,0 -198.5,-88.831482 -198.5,-198.5z" stroke-width="3" stroke="rgba(255,255,255,0.1)" fill="none"/>
             </svg>
 
-            <h1 id="french"></h1>
+            <h1 id="french" v-show="showFrench" transition="roll"></h1>
             <form v-on:submit="checkTranslation">
                 <input type="text" v-model="english" placeholder="Translate to English" class="{{ color }}">
                 <input v-if="!next" type="submit" value="Check">

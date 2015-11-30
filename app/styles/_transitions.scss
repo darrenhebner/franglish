@@ -14,3 +14,24 @@
   	right: -75%;
   }
 }
+
+.roll-transition {
+  transition: all 0.5s cubic-bezier(.27,1.13,.26,.92);
+  opacity: 1;
+  transform-origin: 100% 100%;
+}
+
+.roll-enter, .roll-leave {
+  opacity: 0;
+  transform: rotateX(-60deg);
+  transform-origin: 100% 100%;
+}
+
+.fade-transition {
+  transition: all 0.35s cubic-bezier(.43,.5,.01,.96);
+  opacity: 1;
+}
+
+.fade-enter, .fade-leave {
+  opacity: 0;
+}

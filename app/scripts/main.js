@@ -90,8 +90,16 @@ var data = {
 	color: '',
 	next: false,
 	correct: 0,
-	total: 0
+	total: 0,
+	showFrench: false
 }
+
+Vue.transition('roll', {
+	afterLeave: function () {
+	   fr.text(this._data.words[index].fr);
+	   this._data.showFrench = true;
+	}
+});
 
 var app = new Vue ({
 	el: "#app",
@@ -101,6 +109,7 @@ var app = new Vue ({
 	ready: function(){
 		this.shuffleArray(this.words);
 		fr.text(this._data.words[index].fr);
+		this._data.showFrench = true;
 	},
 	methods: {
 		shuffleArray: function(array) {
@@ -122,10 +131,15 @@ var app = new Vue ({
 			var english = this.english;
 			if (this._data.words[index].en === english.toLowerCase()){
 				this._data.color = "correct";
+				// moves word to back of deck
+				this.words.push(this._data.words[index]);
 				this.correct++;
 			} else {
+				// adds word to the list of incorrect words
 				this._data.incorrectWords.push({fr: this._data.words[index].fr});
 				this._data.color = "incorrect";
+				// moves word three places back in the deck so the user gets another try
+				this.words.splice(index + 3, 0, this._data.words[index]);
 				this.english = this.words[index].en;
 			}
 			this._data.next = true;
@@ -137,7 +151,7 @@ var app = new Vue ({
 			this._data.next = false;
 			this._data.color = '';
 			index++;
-			fr.text(this._data.words[index].fr);
+			this._data.showFrench = false;
 		},
 		updateGuage: function() {
 			var score = 1255 - (this.correct / this.total * 1255);
