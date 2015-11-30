@@ -63,9 +63,9 @@ button {
 
 .progress {
 	stroke-dasharray: 1255;
-	//stroke-dashoffset: 0;
+	//stroke-dashoffset: 1255;
 	transition: all .3s ease-in-out;
-	animation: loadProgress 1.2s ease-in-out;
+	animation:loadProgress 1.2s ease-in-out;
 }
 
 .next-btn {

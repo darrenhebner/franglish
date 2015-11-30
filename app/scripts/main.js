@@ -99,9 +99,24 @@ var app = new Vue ({
 	data: data,
 
 	ready: function(){
+		this.shuffleArray(this.words);
 		fr.text(this._data.words[index].fr);
 	},
 	methods: {
+		shuffleArray: function(array) {
+		  	var m = array.length, t, i;
+
+			while (m) {
+
+				i = Math.floor(Math.random() * m--);
+
+				t = array[m];
+				array[m] = array[i];
+				array[i] = t;
+			}
+
+			this.words = array;
+		},
 		checkTranslation: function(e) {
 			e.preventDefault();
 			var english = this.english;
